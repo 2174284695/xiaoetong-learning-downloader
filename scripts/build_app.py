@@ -40,7 +40,7 @@ def main() -> None:
                         str(ROOT / 'dist' / target), f'{archive}.zip'], check=True)
     else:
         shutil.make_archive(str(archive), 'zip', root_dir=ROOT / 'dist', base_dir=target)
-    print(f'构建完成：{archive}.zip')
+    print(f'Built: {archive}.zip')
 
 
 if __name__ == '__main__':
