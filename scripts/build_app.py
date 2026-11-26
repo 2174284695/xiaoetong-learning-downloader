@@ -34,6 +34,14 @@ def main() -> None:
     if browser_target.exists():
         shutil.rmtree(browser_target)
     shutil.copytree(BROWSERS, browser_target, symlinks=True)
+    if sys.platform == 'darwin':
+        app_path = ROOT / 'dist' / target
+        # Chromium is copied after PyInstaller signs the app. Seal the complete
+        # bundle again so Gatekeeper does not report a damaged application.
+        subprocess.run(['codesign', '--force', '--deep', '--sign', '-', str(app_path)],
+                       check=True)
+        subprocess.run(['codesign', '--verify', '--deep', '--strict', str(app_path)],
+                       check=True)
     archive = ROOT / 'dist' / f'{NAME}-{"macOS" if sys.platform == "darwin" else "Windows"}'
     if sys.platform == 'darwin':
         subprocess.run(['ditto', '-c', '-k', '--sequesterRsrc', '--keepParent',
