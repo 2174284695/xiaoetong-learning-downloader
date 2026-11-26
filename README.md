@@ -2,6 +2,15 @@
 
 本机图形程序：在浏览器中登录小鹅通，读取账号下的课程，选择具体课时后保存可访问的视频或电子书图片。仅用于保存你有权下载的内容；请遵守课程授权和平台条款。
 
+## 直接下载
+
+从 [最新桌面预览版](https://github.com/2174284695/xiaoetong-learning-downloader/releases/tag/v0.1.0-preview) 下载对应系统的 ZIP，解压后运行：
+
+- macOS Apple Silicon：`XiaoetongDownloader.app`。已在 Mac 上完成实际课程下载验证。
+- Windows x64：`XiaoetongDownloader.exe`。安装包已在 Windows runner 上通过内置浏览器和 ffmpeg 自检，课程登录和下载仍待 Windows 用户实测。
+
+两个安装包都包含运行时、浏览器和 ffmpeg，无需另外安装 Python。程序未做开发者签名，首次打开可能出现系统安全提示。
+
 ## 已验证功能
 
 - 浏览器登录后读取课程列表。
