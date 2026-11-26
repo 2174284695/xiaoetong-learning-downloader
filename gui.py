@@ -174,5 +174,15 @@ if __name__=='__main__':
     if len(sys.argv)>1 and sys.argv[1]=='--browser-session':
         from browser_session import run_browser_session
         run_browser_session(Path(sys.argv[2]),Path(sys.argv[3]))
+    elif len(sys.argv)>2 and sys.argv[1]=='--self-test':
+        from app_runtime import ffmpeg_path
+        from playwright.sync_api import sync_playwright
+        result={'ffmpeg':ffmpeg_path()}
+        with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True)
+            page=browser.new_page(); page.goto('about:blank')
+            result['browser']=page.url
+            browser.close()
+        Path(sys.argv[2]).write_text(json.dumps(result),encoding='utf-8')
     else:
         App().mainloop()

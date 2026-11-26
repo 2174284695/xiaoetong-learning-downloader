@@ -22,3 +22,14 @@ python gui.py
 启动后依次点击“打开浏览器登录”“读取登录状态和课程”，选中课程并读取课时，再勾选要保存的内容。浏览器登录状态保存在本机 `.browser_session/`；下载文件保存在 `download/`。这些目录已被 Git 忽略。
 
 本项目为独立实现。早期需求探索曾参考 [miaoyc666/xiaoetong-video-downloader](https://github.com/miaoyc666/xiaoetong-video-downloader)，但本仓库不包含该项目的源代码。课程网站的接口可能变化，未验证的课程类型可能需要适配。
+
+## 桌面安装包
+
+构建脚本会把 Python、Chromium 和 ffmpeg 一起打进安装包。macOS 在 Mac 上构建，Windows 在 Windows 上构建：
+
+```bash
+pip install -r requirements.txt -r requirements-build.txt
+python scripts/build_app.py
+```
+
+生成的 ZIP 位于 `dist/`。macOS 解压后打开 `XiaoetongDownloader.app`；Windows 解压后运行 `XiaoetongDownloader.exe`。GitHub Actions 的「Build desktop apps」工作流会分别在 Mac 和 Windows 构建并运行安装包自检。当前安装包没有开发者签名，macOS 和 Windows 首次打开时可能显示系统安全提示。下载内容与登录状态只保存在用户本机目录。

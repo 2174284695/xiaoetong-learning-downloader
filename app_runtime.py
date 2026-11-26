@@ -42,9 +42,14 @@ def default_download_dir() -> Path:
 
 def configure_browser() -> None:
     if FROZEN:
-        browser_path = Path(sys._MEIPASS) / 'ms-playwright'
-        if browser_path.exists():
-            os.environ['PLAYWRIGHT_BROWSERS_PATH'] = str(browser_path)
+        candidates = [Path(sys._MEIPASS) / 'ms-playwright']
+        if sys.platform == 'darwin':
+            candidates.append(Path(sys.executable).resolve().parents[1] /
+                              'Resources' / 'ms-playwright')
+        for browser_path in candidates:
+            if browser_path.exists():
+                os.environ['PLAYWRIGHT_BROWSERS_PATH'] = str(browser_path)
+                break
 
 
 def ffmpeg_path() -> str:
