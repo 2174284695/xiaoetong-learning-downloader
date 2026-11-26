@@ -32,4 +32,4 @@ pip install -r requirements.txt -r requirements-build.txt
 python scripts/build_app.py
 ```
 
-生成的 ZIP 位于 `dist/`。macOS 解压后打开 `XiaoetongDownloader.app`；Windows 解压后运行 `XiaoetongDownloader.exe`。GitHub Actions 的「Build desktop apps」工作流会分别在 Mac 和 Windows 构建并运行安装包自检。当前安装包没有开发者签名，macOS 和 Windows 首次打开时可能显示系统安全提示。下载内容与登录状态只保存在用户本机目录。
+生成的 ZIP 位于 `dist/`。macOS 解压后打开 `XiaoetongDownloader.app`；Windows 解压后运行 `XiaoetongDownloader.exe`。macOS 安装包已在本机运行及自检；Windows 安装包需要在 Windows 上构建与验证。当前安装包没有开发者签名，首次打开时可能显示系统安全提示。下载内容与登录状态只保存在用户本机目录。
