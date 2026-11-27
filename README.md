@@ -4,7 +4,7 @@
 
 ## 直接下载
 
-从 [最新桌面预览版](https://github.com/2174284695/xiaoetong-learning-downloader/releases/tag/v0.1.1-preview) 下载对应系统的 ZIP，解压后运行：
+从 [最新桌面预览版](https://github.com/2174284695/xiaoetong-learning-downloader/releases/tag/v0.2.0-preview) 下载对应系统的 ZIP，解压后运行：
 
 - macOS Apple Silicon：`XiaoetongDownloader.app`。已在 Mac 上完成实际课程下载验证。请使用 v0.1.1-preview 或更新版本；v0.1.0-preview 的 Mac 应用包存在签名失效问题。由于尚未经过 Apple 公证，首次打开可能需要在“系统设置 → 隐私与安全性”中选择“仍要打开”。
 - Windows x64：`XiaoetongDownloader.exe`。安装包已在 Windows runner 上通过内置浏览器和 ffmpeg 自检，课程登录和下载仍待 Windows 用户实测。
