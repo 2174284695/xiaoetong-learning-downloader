@@ -28,7 +28,9 @@ python -m playwright install chromium
 python gui.py
 ```
 
-启动后依次点击“打开浏览器登录”“读取登录状态和课程”，选中课程并读取课时，再勾选要保存的内容。浏览器登录状态保存在本机 `.browser_session/`；下载文件保存在 `download/`。这些目录已被 Git 忽略。
+启动后点击“打开浏览器登录”，在浏览器完成登录后点击“我已登录，读取课程”。选择课程后会自动读取章节，勾选要保存的内容并点击“开始下载”。浏览器登录状态保存在本机 `.browser_session/`；下载文件保存在 `download/`。这些目录已被 Git 忽略。
+
+后续功能与跨平台验证安排见 [开发方案](DEVELOPMENT_PLAN.md)。
 
 本项目为独立实现。早期需求探索曾参考 [miaoyc666/xiaoetong-video-downloader](https://github.com/miaoyc666/xiaoetong-video-downloader)，但本仓库不包含该项目的源代码。课程网站的接口可能变化，未验证的课程类型可能需要适配。
 
